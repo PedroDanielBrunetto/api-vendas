@@ -18,14 +18,15 @@ app.use(errors());
 
 // middleware de erro para o código limpo sem try catch
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+  console.log("Error:", error);
   if (error instanceof AppError) {
-    return response.status(error.statusCode).json({
+    return res.status(error.statusCode).json({
       status: "error",
       message: error.message,
     });
   }
 
-  return response.status(500).json({
+  return res.status(500).json({
     status: "error",
     message: "Internal server error",
   });
