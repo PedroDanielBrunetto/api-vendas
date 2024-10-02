@@ -1,0 +1,84 @@
+# API Restful de Controle de Produtos e Usuários
+
+Este projeto é uma API Restful para controle de produtos e usuários, desenvolvida como estudo utilizando tecnologias como TypeScript, Express, TypeORM, Docker, AWS S3, JWT, entre outras.
+
+## Tecnologias Utilizadas:
+- **TypeScript**
+- **Express**
+- **TypeORM**
+- **Docker**
+- **PostgreSQL**
+- **AWS S3**
+- **JWT**
+- **Outras**
+
+## Passo a Passo para Configuração
+
+### 1. Clonando o Repositório
+Clone o repositório para sua máquina local utilizando o seguinte comando:
+```bash
+git clone https://github.com/PedroDanielBrunetto/api-vendas.git
+```
+
+### 2. Instalando as Dependências
+Navegue até a pasta do projeto e instale as dependências:
+```bash
+npm install
+```
+
+### 3. Configurando o Banco de Dados
+Crie um arquivo `ormconfig.json` na raiz do projeto com as seguintes configurações:
+```json
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "apivendas",
+  "entities": [
+    "./src/modules/**/typeorm/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/shared/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/typeorm/migrations"
+  }
+}
+```
+
+### 4. Criando o Diretório de Uploads
+Crie uma pasta chamada `uploads` na raiz do projeto. Esta pasta será utilizada para armazenar arquivos temporários.
+
+### 5. Iniciando o Container Docker
+Inicie um container Docker com PostgreSQL usando o seguinte comando:
+```bash
+docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+### 6. Criando o Banco de Dados
+Utilizando uma ferramenta como [DBeaver](https://dbeaver.io/) ou [pgAdmin](https://www.pgadmin.org/), conecte-se à instância PostgreSQL que foi criada com as seguintes credenciais:
+- **Host**: `localhost`
+- **Porta**: `5432`
+- **Usuário**: `postgres`
+- **Senha**: `docker`
+
+Crie um banco de dados chamado `apivendas`.
+
+### 7. Executando as Migrations
+Com o container rodando e o banco de dados criado, execute as migrations para configurar as tabelas:
+```bash
+npm run typeorm migration:run
+```
+
+### 8. Iniciando o Servidor
+Após todas as etapas anteriores, você pode iniciar a aplicação com o comando:
+```bash
+npm run dev
+```
+
+### 9. Futuras Funcionalidades
+Novas funcionalidades e instruções serão adicionadas conforme o projeto evolui. Certifique-se de acompanhar as atualizações para manter o ambiente corretamente configurado.
+
+---
