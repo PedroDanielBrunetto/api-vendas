@@ -3,13 +3,22 @@
 Este projeto é uma API Restful para controle de produtos e usuários, desenvolvida como estudo utilizando tecnologias como TypeScript, Express, TypeORM, Docker, AWS S3, JWT, entre outras.
 
 ## Tecnologias Utilizadas:
-- **TypeScript**
-- **Express**
-- **TypeORM**
-- **Docker**
-- **PostgreSQL**
-- **AWS S3**
-- **JWT**
+- **Node.js**: Ambiente de execução JavaScript para backend.
+
+- **ExpressJs**: Framework web minimalista e flexível para Node.js.
+
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática e recursos avançados.
+
+- **TypeORM**: ORM para TypeScript que simplifica a interação com bancos de dados.
+
+- **PostgreSQL (via Docker)**: Banco de dados relacional robusto e escalável.
+
+- **Redis (via Docker)**: Armazenamento de dados em memória para cache e otimização de performance.
+
+- **Cloudflare R2/Amazon S3**: Serviço de armazenamento de objetos escalável para armazenar arquivos de forma segura.
+
+- **Amazon SES**: Serviço de envio de emails transacionais para comunicação com usuários.
+
 - **Outras**
 
 ## Passo a Passo para Configuração
