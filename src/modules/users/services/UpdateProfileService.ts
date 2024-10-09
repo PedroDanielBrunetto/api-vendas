@@ -51,6 +51,8 @@ class UpdateProfileService {
     user.name = name;
     user.email = email;
 
+    usersRepository.save(user);
+
     return user;
   }
 }
