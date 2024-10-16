@@ -1,7 +1,8 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateUserTokens1727911027408 implements MigrationInterface {
+export class CreateUserTokens1607917238905 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     await queryRunner.createTable(
       new Table({
         name: "user_tokens",
@@ -25,12 +26,12 @@ export class CreateUserTokens1727911027408 implements MigrationInterface {
           },
           {
             name: "created_at",
-            type: "timestamp with time zone",
+            type: "timestamp",
             default: "now()",
           },
           {
             name: "updated_at",
-            type: "timestamp with time zone",
+            type: "timestamp",
             default: "now()",
           },
         ],

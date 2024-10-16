@@ -1,7 +1,8 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateOrdersProducts1728609119993 implements MigrationInterface {
+export class CreateOrdersProducts1609038202583 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     await queryRunner.createTable(
       new Table({
         name: "orders_products",
@@ -25,12 +26,12 @@ export class CreateOrdersProducts1728609119993 implements MigrationInterface {
           },
           {
             name: "created_at",
-            type: "timestamp with time zone",
+            type: "timestamp",
             default: "now()",
           },
           {
             name: "updated_at",
-            type: "timestamp with time zone",
+            type: "timestamp",
             default: "now()",
           },
         ],
