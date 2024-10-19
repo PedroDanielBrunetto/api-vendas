@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Exclude, Expose } from "class-transformer";
 
 @Entity("users")
 class User {
@@ -18,6 +19,7 @@ class User {
   email: string;
 
   @Column()
+  @Exclude() // Garante que a classe não retorne dados sensíveis.
   password: string;
 
   @Column()
@@ -28,6 +30,13 @@ class User {
 
   @UpdateDateColumn({ name: "updated_at" })
   updated_at: Date;
+
+  @Expose({ name: "avatar_url" }) // Nome que será usado no retorno da classe.
+  getAvatarUrl(): string | null {
+    if (!this.avatar) return null;
+
+    return `${process.env.APP_API_URL}/files/${this.avatar}`;
+  }
 }
 
 export default User;
