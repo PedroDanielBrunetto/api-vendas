@@ -11,7 +11,7 @@ const usersController = new UsersController();
 const usersAvatarController = new UserAvatarController();
 
 //configuração para o upload
-const upload = multer(uploadConfig);
+const upload = multer(uploadConfig.multer);
 
 usersRouter.get("/", isAuthenticated, usersController.index);
 usersRouter.post(
