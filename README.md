@@ -87,6 +87,12 @@ Após todas as etapas anteriores, você pode iniciar a aplicação com o comando
 npm run dev
 ```
 
+### Docker-Compose
+Para uma inicialização encapsulada, configure somente o .env e ormconfig.json trocando o localhost pelos respectivos redis no .env e db no ormconfig, após isso crie uma pasta dentro de .docker chamada dbdata e por fim, rode o comando:
+```bash
+docker-compose up
+```
+
 ### 9. Futuras Funcionalidades
 Novas funcionalidades e instruções serão adicionadas conforme o projeto evolui. Certifique-se de acompanhar as atualizações para manter o ambiente corretamente configurado.
 
